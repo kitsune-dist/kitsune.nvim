@@ -1,0 +1,6 @@
+__MACOSX/
+.DS_Store
+Thumbs.db
+desktop.ini
+lazy-lock.json
+nvim.sh
