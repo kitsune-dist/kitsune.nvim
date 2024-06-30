@@ -6,11 +6,9 @@
       \_\_\      █ █ █  █  ▂▂█ █▂█ █▝█ █▂▂ ▄ █▝█ ▀▄▀ █ █▝▐▌
  ```
 
-- - -
-
 Kitsune OS's very own neo-bloat distribution.
 
-By the way, Kitsune OS does not exist yet, lol.
+*By the way, Kitsune OS does not exist yet, lol.*
 
 
 ## Usage
@@ -56,6 +54,6 @@ Code **strictly associated** with kitsune.nvim is under terms of the MIT softwar
 license definitions have been linked inline, and reinstated within core files.
 
 This obviously does not apply to the plugins and third-party software that may be installed.
-Feel free to review the [`lua/kitsune/plugin/init.lua`](github.com/kitsune-dist/kitsune.nvim/blob/main/lua/kitsune/plugin/init.lua)
+Feel free to review the [`lua/kitsune/plugin.lua`](github.com/kitsune-dist/kitsune.nvim/blob/main/lua/kitsune/plugin.lua)
 file for information about each plugin provided in stock Kitsune.nvim.
 
