@@ -122,8 +122,20 @@ return function()
 	--  - settings (table): Override the default settings passed when initializing the server.
 	--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 	local servers = {
-		-- clangd = {},
-		-- gopls = {},
+		clangd = {},
+		gopls = {
+			capabilities = capabilities,
+			cmd = { 'gopls' },
+			filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+			root_dir = require('lspconfig.util').root_pattern('go.work', 'go.mod', '.git'),
+			settings = {
+				completeUnimported = true,
+				usePlaceholders = true,
+				analyses = {
+					unusedparams = true,
+				},
+			},
+		},
 		-- pyright = {},
 		-- rust_analyzer = {},
 		-- SEE: `:help lspconfig-all` for a list of all the pre-configured LSPs

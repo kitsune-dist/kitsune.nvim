@@ -29,11 +29,13 @@ require('lazy').setup({
 			},
 		},
 	},
+
 	{ -- Shows you keybind possibilities.
 		'folke/which-key.nvim',
 		event = 'VimEnter',
 		config = require 'kitsune.config.whichkey',
 	},
+
 	{ -- Fuzzy Finder (files, lsp, etc)
 		'nvim-telescope/telescope.nvim',
 		event = 'VimEnter',
@@ -49,6 +51,7 @@ require('lazy').setup({
 		},
 		config = require 'kitsune.config.telescope',
 	},
+
 	{ -- File tree & picker
 		'nvim-tree/nvim-tree.lua',
 		config = require 'kitsune.config.nvimtree',
@@ -120,21 +123,6 @@ require('lazy').setup({
 		config = require 'kitsune.config.cmp',
 	},
 
-	{ -- Main colorscheme
-		'sainnhe/gruvbox-material',
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		init = function()
-			vim.g.gruvbox_material_background = 'medium'
-			vim.g.gruvbox_material_diagnostic_text_highlight = 1
-			vim.g.gruvbox_material_current_word = 'underline'
-			vim.g.gruvbox_material_enable_italic = 1
-			vim.g.gruvbox_material_enable_bold = 1
-
-			Set('background', 'dark')
-			Cmd 'colorscheme gruvbox-material'
-		end,
-	},
-
 	{ -- Highlight todo, notes, etc in comments
 		'folke/todo-comments.nvim',
 		event = 'VimEnter',
@@ -184,6 +172,76 @@ require('lazy').setup({
 			require('nvim-treesitter.configs').setup(opts)
 		end,
 	},
+	{ -- See problems and diagnostics
+		'folke/trouble.nvim',
+		cmd = 'Trouble',
+		opts = {},
+		keys = {
+			{
+				'<leader>xx',
+				'<cmd>Trouble diagnostics toggle<cr>',
+				desc = 'Diagnostics (Trouble)',
+			},
+			{
+				'<leader>xX',
+				'<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+				desc = 'Buffer Diagnostics (Trouble)',
+			},
+			{
+				'<leader>cs',
+				'<cmd>Trouble symbols toggle focus=false<cr>',
+				desc = 'Symbols (Trouble)',
+			},
+			{
+				'<leader>cl',
+				'<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+				desc = 'LSP Definitions / references / ... (Trouble)',
+			},
+			{
+				'<leader>xL',
+				'<cmd>Trouble loclist toggle<cr>',
+				desc = 'Location List (Trouble)',
+			},
+			{
+				'<leader>xQ',
+				'<cmd>Trouble qflist toggle<cr>',
+				desc = 'Quickfix List (Trouble)',
+			},
+		},
+	},
+	-- { -- Debug adapter
+	-- 	'mfussenegger/nvim-dap',
+	-- 	dependencies = {
+	-- 		'leoluz/nvim-dap-go',
+	-- 	},
+	-- 	config = require('dap-go').setup,
+	-- },
+
+	-- Colorschemes
+	{ -- Primary
+		'sainnhe/gruvbox-material',
+		priority = 1000, -- Make sure to load this before all the other start plugins.
+		init = function()
+			vim.g.gruvbox_material_background = 'medium'
+			vim.g.gruvbox_material_diagnostic_text_highlight = 1
+			vim.g.gruvbox_material_current_word = 'underline'
+			vim.g.gruvbox_material_enable_italic = 1
+			vim.g.gruvbox_material_enable_bold = 1
+
+			Set('background', 'dark')
+			Cmd 'colorscheme gruvbox-material'
+		end,
+	},
+	'HUAHUAI23/nvim-quietlight',
+	'folke/tokyonight.nvim',
+	'morhetz/gruvbox',
+	'nordtheme/nord',
+	'rebelot/kanagawa.nvim',
+	'sainnhe/edge',
+	'sainnhe/everforest',
+	'sainnhe/sonokai',
+	'savq/melange-nvim',
+	'yorik1984/newpaper.nvim',
 }, {
 	ui = {
 		icons = vim.g.have_nerd_font and {} or {
